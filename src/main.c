@@ -1,3 +1,7 @@
+/* Type your code here, or load an example. */
+int square(int num) {
+    return num * num;
+}
 #include <stdio.h>
 #define m 5
 #define n 5
@@ -17,8 +21,9 @@ int maze[m + 2][n + 2] = {
 	{2, 0, 1, 1, 1, 0, 2},
 	{2, 2, 2, 2, 2, 2, 2}};
 
-int zx[5] = {0, 0, 0, 1, -1};
-int zy[5] = {0, -1, 1, 0, 0};
+// still, down, up, right, left
+int zx[9] = {0, 1,-1, -1, 1, 0, 0, 1, -1};
+int zy[9] = {0, -1, -1, 1, 1, -1, 1, 0, 0};
 
 void print(int rear)
 {
@@ -84,7 +89,8 @@ int main()
 		x = queue[front].x;
 		y = queue[front].y;
 
-		for (v = 1; v <= 4; v++)
+
+		for (v = 1; v <= 8; v++)
 		{
 			i = x + zx[v];
 			j = y + zy[v];
@@ -107,7 +113,9 @@ int main()
 	}
 	
 	if (!find)
-		printf("Cannot find it");
+    {
+        printf("Cannot find it");
+    }
 
 	getchar();
 	return 0;
